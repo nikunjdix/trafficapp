@@ -14,6 +14,12 @@
 		369030E72A574B8400E70F3C /* LandmarksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369030E62A574B8400E70F3C /* LandmarksTests.swift */; };
 		369030F12A574B8400E70F3C /* LandmarksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369030F02A574B8400E70F3C /* LandmarksUITests.swift */; };
 		369030F32A574B8400E70F3C /* LandmarksUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369030F22A574B8400E70F3C /* LandmarksUITestsLaunchTests.swift */; };
+		369031042A577F4F00E70F3C /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031032A577F4F00E70F3C /* ContentVM.swift */; };
+		3690313C2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3690313B2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel */; };
+		3690313F2A69E65100E70F3C /* ObjectDetectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690313E2A69E65100E70F3C /* ObjectDetectionVM.swift */; };
+		369031412A69E6C900E70F3C /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031402A69E6C900E70F3C /* CameraManager.swift */; };
+		369031442A69E76B00E70F3C /* CGImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031432A69E76B00E70F3C /* CGImageExt.swift */; };
+		369031462A69E7F000E70F3C /* ObjectDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031452A69E7F000E70F3C /* ObjectDetectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,12 @@
 		369030EC2A574B8400E70F3C /* LandmarksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LandmarksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		369030F02A574B8400E70F3C /* LandmarksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksUITests.swift; sourceTree = "<group>"; };
 		369030F22A574B8400E70F3C /* LandmarksUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		369031032A577F4F00E70F3C /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
+		3690313B2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3Tiny.mlmodel; sourceTree = "<group>"; };
+		3690313E2A69E65100E70F3C /* ObjectDetectionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionVM.swift; sourceTree = "<group>"; };
+		369031402A69E6C900E70F3C /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		369031432A69E76B00E70F3C /* CGImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExt.swift; sourceTree = "<group>"; };
+		369031452A69E7F000E70F3C /* ObjectDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +106,12 @@
 		369030D42A574B8400E70F3C /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
-				369030D52A574B8400E70F3C /* LandmarksApp.swift */,
-				369030D72A574B8400E70F3C /* ContentView.swift */,
 				369030D92A574B8400E70F3C /* Assets.xcassets */,
+				369031422A69E6E800E70F3C /* Miscellaneous */,
+				369031012A577E5700E70F3C /* Application */,
+				369031002A577E2E00E70F3C /* ViewModels */,
+				369030FF2A577E2300E70F3C /* Views */,
+				369031022A577E7E00E70F3C /* Resources */,
 				369030DB2A574B8400E70F3C /* Preview Content */,
 			);
 			path = Landmarks;
@@ -125,6 +140,49 @@
 				369030F22A574B8400E70F3C /* LandmarksUITestsLaunchTests.swift */,
 			);
 			path = LandmarksUITests;
+			sourceTree = "<group>";
+		};
+		369030FF2A577E2300E70F3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				369030D72A574B8400E70F3C /* ContentView.swift */,
+				369031452A69E7F000E70F3C /* ObjectDetectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		369031002A577E2E00E70F3C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				369031032A577F4F00E70F3C /* ContentVM.swift */,
+				3690313E2A69E65100E70F3C /* ObjectDetectionVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		369031012A577E5700E70F3C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				369030D52A574B8400E70F3C /* LandmarksApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		369031022A577E7E00E70F3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3690313B2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		369031422A69E6E800E70F3C /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				369031402A69E6C900E70F3C /* CameraManager.swift */,
+				369031432A69E76B00E70F3C /* CGImageExt.swift */,
+			);
+			path = Miscellaneous;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +315,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369031042A577F4F00E70F3C /* ContentVM.swift in Sources */,
 				369030D82A574B8400E70F3C /* ContentView.swift in Sources */,
+				3690313C2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel in Sources */,
+				3690313F2A69E65100E70F3C /* ObjectDetectionVM.swift in Sources */,
+				369031442A69E76B00E70F3C /* CGImageExt.swift in Sources */,
+				369031462A69E7F000E70F3C /* ObjectDetectionView.swift in Sources */,
+				369031412A69E6C900E70F3C /* CameraManager.swift in Sources */,
 				369030D62A574B8400E70F3C /* LandmarksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,8 +481,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
+				DEVELOPMENT_TEAM = X9K6U9QYF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow to record audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.Landmarks;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.Landmarks-nikky";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -445,8 +512,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarks/Preview Content\"";
+				DEVELOPMENT_TEAM = X9K6U9QYF7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow to take photo.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow to record audio.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,7 +527,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sample.Landmarks;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sample.Landmarks-nikky";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
