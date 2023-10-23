@@ -16,6 +16,19 @@ class ObjectDetectionVM: NSObject, ObservableObject {
     @Published var boundingBoxes: [CGRect] = []
     @Published var boxLabels: [String] = []
     
+    @State var synthesizer = AVSpeechSynthesizer()
+    var wasOnScreen = false
+    var isOnScreen = false
+    
+
+    func synthesizeSpeech(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.pitchMultiplier = 1.0
+        utterance.rate = 0.55
+        synthesizer.speak(utterance)
+    }
+    
     let videoOutputQueue = DispatchQueue(label: "VideoOutputQ", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
     
     private let context = CIContext()
@@ -49,7 +62,7 @@ class ObjectDetectionVM: NSObject, ObservableObject {
     func setupVision() -> NSError? {
         let error: NSError! = nil
         
-        guard let modelUrl = Bundle.main.url(forResource: "YOLOv3Tiny", withExtension: "mlmodelc") else {
+        guard let modelUrl = Bundle.main.url(forResource: "TrafficSign", withExtension: "mlmodelc") else {
             return NSError(domain: "ObjectDetectionVM", code: -1, userInfo: [NSLocalizedDescriptionKey: "Missing Core ML Model File"])
         }
         do {
@@ -57,6 +70,7 @@ class ObjectDetectionVM: NSObject, ObservableObject {
             let objectRecognition = VNCoreMLRequest(model: visionModel, completionHandler: { request, error in
                 DispatchQueue.main.async {
                     if let results = request.results {
+                        self.wasOnScreen = !self.boxLabels.isEmpty
                         self.boundingBoxes = []
                         self.boxLabels = []
                         for observation in results where observation is VNRecognizedObjectObservation {
@@ -71,16 +85,29 @@ class ObjectDetectionVM: NSObject, ObservableObject {
                             let confidence = formatter.string(from: topLabel.confidence as NSNumber)!
                             let identifier = topLabel.identifier.uppercased()
                             let box = objectObservation.boundingBox
+//                            if identifier == "TRAFFIC LIGHT" {
+                                //print(identifier)
+                                //print(confidence)
+                                if let cgImage = self.cgImage {
+                                    let flipped = CGRect(x: box.origin.x, y: 1 - box.origin.y, width: box.width, height: box.height)
+                                    let converted = VNImageRectForNormalizedRect(flipped, cgImage.width, cgImage.height)
+                                    let fixed = CGRect(x: converted.origin.x, y: converted.origin.y - converted.height, width: converted.width, height: converted.height)
+                                    self.boundingBoxes.append(fixed)
+                                    self.boxLabels.append(identifier)
+                                }
+//                            }
                             print("\(confidence) • \(identifier)")
-                            print(box)
-                            if let cgImage = self.cgImage {
-                                let flipped = CGRect(x: box.origin.x, y: 1 - box.origin.y, width: box.width, height: box.height)
-                                let converted = VNImageRectForNormalizedRect(flipped, cgImage.width, cgImage.height)
-                                let fixed = CGRect(x: converted.origin.x, y: converted.origin.y - converted.height, width: converted.width, height: converted.height)
-                                self.boundingBoxes.append(fixed)
-                                self.boxLabels.append(identifier)
-                            }
+                            //print(box)
+                           
+                            
                         }
+//                        print(self.boxLabels)
+                        self.isOnScreen = !self.boxLabels.isEmpty
+//                        print(self.wasOnScreen)
+//                        print(self.isOnScreen)
+//                        if !self.wasOnScreen && self.isOnScreen {
+//                            self.synthesizeSpeech("Traffic Light")
+//                        }
                     }
                 }
             })

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		365F3F422AE55B4D00799A49 /* TrafficSign.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 365F3F412AE55B4D00799A49 /* TrafficSign.mlmodel */; };
 		369030D62A574B8400E70F3C /* LandmarksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369030D52A574B8400E70F3C /* LandmarksApp.swift */; };
 		369030D82A574B8400E70F3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369030D72A574B8400E70F3C /* ContentView.swift */; };
 		369030DA2A574B8400E70F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 369030D92A574B8400E70F3C /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		369031412A69E6C900E70F3C /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031402A69E6C900E70F3C /* CameraManager.swift */; };
 		369031442A69E76B00E70F3C /* CGImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031432A69E76B00E70F3C /* CGImageExt.swift */; };
 		369031462A69E7F000E70F3C /* ObjectDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031452A69E7F000E70F3C /* ObjectDetectionView.swift */; };
+		369031482A7C683A00E70F3C /* DeferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369031472A7C683A00E70F3C /* DeferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		365F3F412AE55B4D00799A49 /* TrafficSign.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TrafficSign.mlmodel; sourceTree = "<group>"; };
 		369030D22A574B8400E70F3C /* Landmarks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369030D52A574B8400E70F3C /* LandmarksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarksApp.swift; sourceTree = "<group>"; };
 		369030D72A574B8400E70F3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		369031402A69E6C900E70F3C /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		369031432A69E76B00E70F3C /* CGImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExt.swift; sourceTree = "<group>"; };
 		369031452A69E7F000E70F3C /* ObjectDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetectionView.swift; sourceTree = "<group>"; };
+		369031472A7C683A00E70F3C /* DeferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeferView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				369030D72A574B8400E70F3C /* ContentView.swift */,
+				369031472A7C683A00E70F3C /* DeferView.swift */,
 				369031452A69E7F000E70F3C /* ObjectDetectionView.swift */,
 			);
 			path = Views;
@@ -171,6 +176,7 @@
 		369031022A577E7E00E70F3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				365F3F412AE55B4D00799A49 /* TrafficSign.mlmodel */,
 				3690313B2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel */,
 			);
 			path = Resources;
@@ -320,9 +326,11 @@
 				3690313C2A69E4B900E70F3C /* YOLOv3Tiny.mlmodel in Sources */,
 				3690313F2A69E65100E70F3C /* ObjectDetectionVM.swift in Sources */,
 				369031442A69E76B00E70F3C /* CGImageExt.swift in Sources */,
+				365F3F422AE55B4D00799A49 /* TrafficSign.mlmodel in Sources */,
 				369031462A69E7F000E70F3C /* ObjectDetectionView.swift in Sources */,
 				369031412A69E6C900E70F3C /* CameraManager.swift in Sources */,
 				369030D62A574B8400E70F3C /* LandmarksApp.swift in Sources */,
+				369031482A7C683A00E70F3C /* DeferView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

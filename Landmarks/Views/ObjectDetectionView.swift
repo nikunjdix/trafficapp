@@ -6,13 +6,24 @@
 //
 
 import SwiftUI
+import AVFoundation
+
 
 struct ObjectDetectionView: View {
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @StateObject var objectDetectionVM = ObjectDetectionVM()
-    
+    @State var synthesizer = AVSpeechSynthesizer()
+
+    func synthesizeSpeech(_ text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.pitchMultiplier = 1.0
+        utterance.rate = 0.55
+        synthesizer.speak(utterance)
+    }
+
     var body: some View {
         VStack {
             ZStack {
@@ -26,6 +37,7 @@ struct ObjectDetectionView: View {
                                     .path(in: box)
                                     .stroke(Color.accentColor, lineWidth: 2)
                                 let label = objectDetectionVM.boxLabels[index]
+//                                synthesizeSpeech(label)
                                 Text(label)
                                     .font(.system(size: 10, weight: .bold))
                                     .position(x: box.midX, y: box.minY)
